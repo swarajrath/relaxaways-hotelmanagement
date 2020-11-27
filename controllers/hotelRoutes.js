@@ -23,13 +23,8 @@ const properties =
 	"facilities_game_room " +
 	"hotel_images";
 
-/**
- * @type GET
- * @description Get all hotel's
- */
 exports.hotels_get = (req, res, next) => {
 	Hotel.find()
-		// Select what values show
 		.select(properties)
 		.exec()
 		.then(result =>
@@ -43,15 +38,11 @@ exports.hotels_get = (req, res, next) => {
 		});
 };
 
-/**
- * @type GET
- * @description Get hotel by ID
- */
+
 exports.hotels_get_by_id = (req, res, next) => {
 	const id = req.params.hotelsId;
 
 	Hotel.findById(id)
-		// Select which property show
 		.select(properties)
 		.exec()
 		.then(result =>
@@ -73,13 +64,10 @@ exports.hotels_get_by_id = (req, res, next) => {
 		});
 };
 
-/**
- * @type POST
- * @description Send new hotel to DB
- */
+
 exports.hotels_post = (req, res, next) => {
 	const reqFiles = [];
-	//const url = req.protocol + "://" + req.get("host");
+
 	const url = req.protocol + "://localhost:5000";
 
 	for (var i = 0; i < req.files.length; i++) {
@@ -110,12 +98,10 @@ exports.hotels_post = (req, res, next) => {
 		hotel_images: reqFiles
 	});
 
-	// Save hotel based on hotel schema object
 	hotel
 		.save()
 		.then(result =>
 			res.status(201).send({
-				// showing hotel schema in Postman
 				message: "Hotel properly added to DB",
 				createdHotel: result
 			})
@@ -127,15 +113,6 @@ exports.hotels_post = (req, res, next) => {
 		});
 };
 
-/**
- * @type UPDATE/PATCH
- * @description Update hotel by ID
- * Schema to update
- * [
- {"propName": "hotel_adress", "value": "Kalifornia 92801, Stany Zjednoczone"},
- {"propName": "hotel_city", "value": "Anaheim"}
- *     ]
- */
 exports.hotels_update = (req, res, next) => {
 	const id = req.params.hotelsId;
 	const updateOps = {};
@@ -156,10 +133,6 @@ exports.hotels_update = (req, res, next) => {
 		});
 };
 
-/**
- * @type DELETE
- * @description Delete hotel by ID
- */
 exports.hotels_delete_by_id = (req, res, next) => {
 	const id = req.params.hotelsId;
 

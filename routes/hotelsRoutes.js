@@ -41,38 +41,18 @@ const upload = multer({
 });
 
 module.exports = app => {
-	/**
-	 * @type GET
-	 * @description Get all hotel's
-	 */
+
 	app.get("/api/hotels", hotels_get);
 
-	/**
-	 * @type POST
-	 * @description Send new hotel to DB
-	 */
+
 	app.post("/api/hotels", upload.array("hotel_images", 6), hotels_post);
 
-	/**
-	 * @type GET
-	 * @description Get hotel by ID
-	 */
+
 	app.get("/api/hotels/:hotelsId", hotels_get_by_id);
 
-	/**
-	 * @type UPDATE/PATCH
-	 * @description Update hotel by ID
-	 * Schema to update
-	 * [
-	 {"propName": "hotel_adress", "value": "Kalifornia 92801, Stany Zjednoczone"},
-	 {"propName": "hotel_city", "value": "Anaheim"}
-	 *     ]
-	 */
+
 	app.patch("/api/hotels/:hotelsId", hotels_update);
 
-	/**
-	 * @type DELETE
-	 * @description Delete hotel by ID
-	 */
+
 	app.delete("/api/hotels/:hotelsId", hotels_delete_by_id);
 };
