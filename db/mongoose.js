@@ -4,8 +4,7 @@ const keys = require("./../config/keys");
 mongoose.Promise = global.Promise;
 
 mongoose.connect(keys.MONGO_URI, {
-	useNewUrlParser: true,
-	useCreateIndex: true
+	useNewUrlParser: true, useUnifiedTopology: true
 });
 
 mongoose.connection.on("connected", () => {

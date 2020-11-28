@@ -46,7 +46,6 @@ app.use((req, res, next) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
-// ROUTES
 require("./routes/hotelsRoutes")(app);
 require("./routes/topRoutes")(app);
 require("./routes/authRoutes")(app);
@@ -59,7 +58,7 @@ if (process.env.NODE_ENV === "production") {
 	});
 }
 
-// MIDDLEWARES
 require("./middlewares/serverLog.js")(app);
 
 module.exports = app;
+
