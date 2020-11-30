@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Props } from './types';
 
 class Box extends PureComponent {
   render() {
