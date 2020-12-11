@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Search from '../Components/Search/Search';
 import LoginSystem from '../Components/Auth/AuthSystem/AuthSystem';
-import HotelsList from '../components/HotelList/HotelList';
+import HotelsList from '../Components/HotelList/HotelList';
 import { getFilteredHotels } from '../../utils/getFilteredHotels';
 import { connect } from 'react-redux';
 import * as actions from '../../Redux/actions/index';
-import Boxes from '../components/Boxes/Boxes';
-import ViewSwitcher from '../components/ViewSwitcher/ViewSwitcher';
-import Loader from '../components/External/Loader/Loader';
-import Notification from '../components/External/Notification/Notification';
+import Boxes from '../Components/Boxes/Boxes';
+import ViewSwitcher from '../Components/ViewSwitcher/ViewSwitcher';
+import Loader from '../Components/External/Loader/Loader';
+import Notification from '../Components/External/Notification/Notification';
 import { Hotel } from './../../types';
 import { Props, State } from './types';
 
