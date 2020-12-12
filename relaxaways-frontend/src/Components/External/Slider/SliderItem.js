@@ -1,17 +1,7 @@
-import { Component } from 'react';
-import React from 'react';
+import React, { Component } from 'react';
 import Notification from '../../Notification/Notification';
 
-interface IProps {
-  hasNext: boolean;
-  hasPrev: boolean;
-  onNext: (event: any) => void;
-  onPrev: (event: any) => void;
-  onCloseModal: (event: any) => void;
-  src: string;
-}
-
-class SliderItem extends Component<IProps, {}> {
+class SliderItem extends Component {
   componentDidMount() {
     document.body.addEventListener('keydown', this.handleKeyDown);
   }
@@ -20,7 +10,7 @@ class SliderItem extends Component<IProps, {}> {
     document.body.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  handleKeyDown = (e: KeyboardEvent) => {
+  handleKeyDown = (e) => {
     if (e.keyCode === 27) this.props.onCloseModal(e);
 
     if (e.keyCode === 37 && this.props.hasPrev) this.props.onPrev(e);
